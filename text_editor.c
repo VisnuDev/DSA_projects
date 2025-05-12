@@ -151,12 +151,20 @@ int operation_routing(char command[], Comm *cmd, Dbll *data_list)
 int print_file_data(Dbll *data_list)
 {
     printf(YELLOW"\n");
+    /*
     Dnode *temp = data_list->head;
     
     while(temp)
     {
         printf("%s\n", temp->line_data);
         temp=temp->next;
+    }
+
+    */
+
+    for(int i=0; i<data_list->line_count; i++)
+    {
+        printf("%s\n", data_list->line_ptr[i]->line_data);
     }
 
     printf("\n");

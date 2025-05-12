@@ -26,7 +26,7 @@ typedef struct node
 
 //Doubly linked list basic operations
 int dl_insert_first(Dnode **head, Dnode **tail, char data[]);
-int dl_insert_last(Dnode **head, Dnode **tail, char data[]);
+Dnode* dl_insert_last(Dnode **head, Dnode **tail, char data[]);
 int dl_delete_first(Dnode **head, Dnode **tail);
 int dl_delete_last(Dnode **head, Dnode **tail);
 int dl_delete_list(Dnode **head, Dnode **tail);

@@ -43,7 +43,7 @@ typedef struct dll
     Dnode *tail;
     
 
-   // Dnode *line[10000];
+    Dnode *line_ptr[10000];
     uint size;
     uint line_count;
     uint curr_line;

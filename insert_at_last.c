@@ -1,6 +1,6 @@
 #include "dll.h"
 
-int dl_insert_last(Dnode **head, Dnode **tail, char data[])
+Dnode* dl_insert_last(Dnode **head, Dnode **tail, char data[])
 {
         
         //Create new node
@@ -8,7 +8,7 @@ int dl_insert_last(Dnode **head, Dnode **tail, char data[])
         Dnode *new_node=malloc(sizeof(Dnode));
         
         if(new_node==NULL)
-            return FAILURE;
+            return NULL;
         
         new_node->prev=*tail;
 
@@ -17,7 +17,7 @@ int dl_insert_last(Dnode **head, Dnode **tail, char data[])
         if (new_node->line_data == NULL)
         {
             free(new_node);
-            return FAILURE;
+            return NULL;
         }
 
         printf("\nData:%s len: %lu", data, strlen(data));
@@ -33,7 +33,7 @@ int dl_insert_last(Dnode **head, Dnode **tail, char data[])
             *head=new_node;
             *tail=new_node;
             
-            return SUCCESS;
+            return new_node;
         }
         
         //Insert as tail node
@@ -41,6 +41,6 @@ int dl_insert_last(Dnode **head, Dnode **tail, char data[])
         
         *tail=new_node;
         
-        return SUCCESS;
+        return new_node;
         
 }

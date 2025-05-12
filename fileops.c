@@ -14,12 +14,15 @@ int  open_file(Dbll *data_list, char file_name[])
 
     char line_string[MAX_LINE_SIZE];
     
+    Dnode *curr_line=NULL;
 
     while(fgets(line_string, sizeof(line_string), fptr)!=NULL)
     {
         line_string[strcspn(line_string, "\r")] = '\0';
-        if(dl_insert_last(&(data_list->head), &(data_list->tail), line_string) == SUCCESS)
+        if( (curr_line= dl_insert_last(&(data_list->head), &(data_list->tail), line_string) ) !=NULL)
         {
+            data_list->line_ptr[data_list->line_count]=curr_line;
+
             data_list->line_count++;
         }
     }
